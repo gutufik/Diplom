@@ -1,0 +1,34 @@
+﻿<Window x:Class="Diplom.WindowS.ClientRegWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom.WindowS"
+        mc:Ignorable="d"
+        Title="ClientRegWin" Height="550" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="637*"/>
+            <ColumnDefinition Width="85*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="330*"/>
+            <RowDefinition Height="46*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="308">
+            <TextBlock Text="Заполните данные о себе" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5"/>
+            <TextBlock Text="Это необходимо для бронирования столиков" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="10"/>
+            <TextBox x:Name="TBPhone" HorizontalAlignment="Left" Margin="10" Text="Телефон" Width="198" Height="30" />
+            <TextBox x:Name="TBName" HorizontalAlignment="Left" Margin="10" Text="Имя" Width="198" Height="30"/>
+            <TextBox x:Name="TBPass" HorizontalAlignment="Left" Margin="10" Text="Пароль" Width="198" Height="30"/>
+            <CheckBox Content="Сгенерировать пароль" x:Name="CBPass" Margin="10"/>
+            <CheckBox Content="Согласен с условиями использования" Margin="10, 5"/>
+            <Button x:Name="ButDob" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Width="198" Height="30"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+            <TextBlock Text="Регистрация" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10, 150"/>
+        </StackPanel>
+    </Grid>
+</Window>
