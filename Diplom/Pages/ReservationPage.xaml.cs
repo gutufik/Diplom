@@ -38,6 +38,11 @@ namespace Diplom.Pages
             Reservation.Time = DateTime.Today + Reservation.Time.TimeOfDay;
             App.DB.Reservation.Add(Reservation);
             App.DB.SaveChanges();
+            NavigationService.GoBack();
+        }
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

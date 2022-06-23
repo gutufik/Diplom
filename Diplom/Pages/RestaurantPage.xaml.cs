@@ -34,5 +34,10 @@ namespace Diplom.Pages
         {
             NavigationService.Navigate(new ReservationPage(Restoraunt));
         }
+
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

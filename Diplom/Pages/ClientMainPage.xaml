@@ -16,38 +16,44 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal">
-            <TextBlock
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnGoBack" Background="Transparent" BorderThickness="0"
+                        Height="80"
+                        VerticalAlignment="Center"
+                Click="BtnGoBack_Click">
+                    <materialDesign:PackIcon Kind="ChevronLeft" Foreground="#4BB9F8" 
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" Width="80" Height="80"/>
+                </Button>
+                <TextBlock
                 Margin="10,0"
                 FontSize="30" FontWeight="DemiBold">
                 Рестораны
-            </TextBlock>
-            <TextBox Width="200"></TextBox>
-            <Button x:Name="BtnReservations"
-                    Click="BtnReservations_Click">
-                
-            </Button>
+                </TextBlock>
+                <TextBox Margin="100,0" 
+                         Width="200" 
+                         TextChanged="TextBox_TextChanged"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Right"></TextBox>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1"
-                    Orientation="Horizontal">
-            <StackPanel.Resources>
-                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-                    <Setter Property="Margin" Value="10,0,10,0"/>
-                    <Setter Property="Foreground" Value="White"/>
-                </Style>
-            </StackPanel.Resources>
-            <TextBox Width="200"></TextBox>
-            <Button>
-                <materialDesign:PackIcon Kind="ClockTimeThreeOutline" />
-            </Button>
-            <Button Content="Прямо сейчас"/>
-            <Button Content="Открытая терраса"/>
-            <Button Content="До утра"/>
-        </StackPanel>
+        <Button x:Name="BtnReservations"
+                Grid.Column="1"
+                Click="BtnReservations_Click"
+                HorizontalAlignment="Center">
+                <materialDesign:PackIcon Kind="AccountOutline" />
+        </Button>
+        
         <ListView x:Name="LVRestaurants"
                   ItemsSource="{Binding Restoraunts}"
                   SelectionChanged="LVRestaurants_SelectionChanged"
-                  Grid.Row="2" Grid.RowSpan="2" >
+                  Grid.Row="2" Grid.RowSpan="2"
+                  Grid.ColumnSpan="2">
             <ListView.View>
             <GridView AllowsColumnReorder="False">
                     <GridViewColumn
@@ -65,9 +71,6 @@
                     <GridViewColumn
                     DisplayMemberBinding="{Binding Places}"
                     Header="Мест" />
-                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Rating}"
-                    Header="Рейтинг" />
                 </GridView>
             </ListView.View>
         </ListView>

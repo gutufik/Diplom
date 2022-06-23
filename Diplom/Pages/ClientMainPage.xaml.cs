@@ -44,5 +44,16 @@ namespace Diplom.Pages
         {
             NavigationService.Navigate(new ClientReservationsPage(App.LoggedUser));
         }
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchText = (sender as TextBox).Text.ToLower();
+            LVRestaurants.ItemsSource = Restoraunts.Where(r => r.Name.ToLower().Contains(searchText)).ToList();
+            LVRestaurants.Items.Refresh();
+        }
     }
 }

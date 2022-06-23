@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3061eefd676c48b4aed17530b5604d6a" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="RestoModel.AverageCheck" Width="1.5" PointX="3" PointY="7.125" />
-        <EntityTypeShape EntityType="RestoModel.FoodType" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="RestoModel.AverageCheck" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="RestoModel.FoodType" Width="1.5" PointX="3" PointY="7.125" />
         <EntityTypeShape EntityType="RestoModel.Reservation" Width="1.5" PointX="7.5" PointY="3.75" />
         <EntityTypeShape EntityType="RestoModel.Restoraunt" Width="1.5" PointX="5.25" PointY="2.75" />
         <EntityTypeShape EntityType="RestoModel.Role" Width="1.5" PointX="0.75" PointY="4.125" />

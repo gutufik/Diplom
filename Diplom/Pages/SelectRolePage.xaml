@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Diplom.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -23,9 +24,21 @@
                     Grid.Column="1"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
-            <TextBlock Text="Регистрация"
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnGoBack" Background="Transparent" BorderThickness="0"
+                        Height="80"
+                        VerticalAlignment="Center"
+                Click="BtnGoBack_Click">
+                    <materialDesign:PackIcon Kind="ChevronLeft" Foreground="#4BB9F8" 
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" Width="80" Height="80"/>
+                </Button>
+                <TextBlock Text="Регистрация"
                        FontSize="20"
+                           VerticalAlignment="Center"
+                           Foreground="#4BB9F8"
                        FontWeight="Bold" />
+            </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
@@ -46,9 +59,6 @@
                          HorizontalAlignment="Left"
                          Margin="5"
                          Click="RadioButtonClick"/>
-            <Button x:Name="BtnGoBack" 
-                    Content="Назад" Margin="10"
-                    Click="BtnGoBack_Click"/>
         </StackPanel>
     </Grid>
 </Page>

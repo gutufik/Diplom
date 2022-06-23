@@ -96,7 +96,7 @@
                    Height="70"
                    Source="{Binding Image}" />
             <Button x:Name="BAddPhoto"
-                    Content="Change photo"
+                    Content="Изменить фото"
                     Click="BAddPhoto_Click" />
             <Button x:Name="BAdd"
                     Content="Добавить"

@@ -49,8 +49,7 @@ namespace Diplom.Pages
                 MessageBox.Show("Что-то пошло не так");
             }
         }
-
-        private void BCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }

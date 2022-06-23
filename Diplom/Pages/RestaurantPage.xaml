@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Diplom.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RestaurantPage">
@@ -16,7 +17,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition Height="6*"/>
@@ -38,6 +39,7 @@
             Grid.Row="3"
             Grid.Column="1"
             TextWrapping="Wrap"
+            FontSize="15"
             Text="{Binding Description}"/>
         <Image x:Name="RestaurantImage"
                Grid.Row="3"
@@ -45,6 +47,16 @@
                Source="{Binding Image}"/>
         <Button x:Name="BtnReserve"
                 Content="Бронировать"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
                 Click="BtnReserve_Click"/>
+        <Button x:Name="BtnGoBack" Background="Transparent" BorderThickness="0"
+                        Height="80"
+                        VerticalAlignment="Center"
+                Click="BtnGoBack_Click">
+            <materialDesign:PackIcon Kind="ChevronLeft" Foreground="#4BB9F8" 
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" Width="80" Height="80"/>
+        </Button>
     </Grid>
 </Page>

@@ -23,47 +23,84 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button x:Name="BtnGoBack" Background="Transparent" BorderThickness="0"
+                        Height="80"
+                        VerticalAlignment="Center"
+                Click="BtnGoBack_Click">
+            <materialDesign:PackIcon Kind="ChevronLeft" Foreground="White" 
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" Width="80" Height="80"/>
+        </Button>
         <TextBlock Text="Бронирование"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
                    Foreground="White"
                    Grid.Column="1"
-                   FontSize="25"/>
-        <TextBlock 
-            Grid.Column="1"
-            Grid.Row="1"
-            Foreground="White"
-            Text="{Binding Restoraunt.Name}"/>
+                   FontSize="30"/>
         <StackPanel 
+            VerticalAlignment="Center"
+            Grid.Column="1"
+            Grid.Row="1">
+                <TextBlock 
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    Foreground="White"
+                    Text="{Binding Restoraunt.Name}"/>
+            <TextBlock 
+            HorizontalAlignment="Center"
+            FontSize="13"
+            Foreground="White"
+            Text="{Binding Restoraunt.Adress}"/>
+        </StackPanel>
+        
+        <StackPanel 
+            HorizontalAlignment="Center"
             Grid.Row="2"
             Grid.Column="1"
             Orientation="Horizontal">
             <TextBlock Text="В"
+                       VerticalAlignment="Bottom"
                        Foreground="White"
                        FontSize="25"/>
             
             <materialDesign:TimePicker
+                Margin="10,5"
               x:Name="TPTime"
               Is24Hours="True"
+                FontSize="15"
+              Foreground="White"
+                VerticalAlignment="Bottom"
               Width="100"
               SelectedTime="{Binding Time}"
                />
 
         </StackPanel>
         <StackPanel 
+            HorizontalAlignment="Center"
             Grid.Row="3"
             Grid.Column="1"
             Orientation="Horizontal">
             <TextBlock Text="На"
                        Foreground="White"
+                       VerticalAlignment="Center"
                        FontSize="25"/>
             <TextBox x:Name="TBPersonsCount"
+                     VerticalAlignment="Center"
+                     Foreground="White"
+                     FontSize="20"
+                     Margin="10"
+                     Padding="0"
                      Text="{Binding Persons}">
             </TextBox>
             <TextBlock 
+                VerticalAlignment="Center"
                 Foreground="White"
                 FontSize="25"
                 Text="персон"/>
         </StackPanel>
         <Button x:Name="BtnReserve"
+                Style="{StaticResource ButtonWhite}"
                 Content="Продолжить"
                 Grid.Column="1"
                 Grid.Row="4"

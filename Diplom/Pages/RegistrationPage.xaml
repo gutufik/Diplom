@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Diplom.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegistrationPage">
@@ -70,24 +71,28 @@
                     Width="198"
                     Height="30"
                     Click="BAdd_Click"/>
-            <Button x:Name="BCancel"
-                    Content="Назад"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Margin="10"
-                    Width="198"
-                    Height="30"
-                    Click="BCancel_Click" />
         </StackPanel>
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
                     Grid.Column="1"
                     HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnGoBack" Background="Transparent" BorderThickness="0"
+                        Height="80"
+                        VerticalAlignment="Center"
+                Click="BtnGoBack_Click">
+                    <materialDesign:PackIcon Kind="ChevronLeft" Foreground="#4BB9F8" 
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" Width="80" Height="80"/>
+                </Button>
             <TextBlock Text="Регистрация"
                        FontSize="20"
+                       FontWeight="Bold"
+                        Foreground="#4BB9F8"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Right"
                        Margin="10, 150" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
