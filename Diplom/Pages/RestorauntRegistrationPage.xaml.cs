@@ -21,10 +21,10 @@ namespace Diplom.Pages
     /// <summary>
     /// Логика взаимодействия для RestorauntRegistrationPage.xaml
     /// </summary>
-    public partial class RestorauntPage : Page
+    public partial class RestorauntRegistrationPage : Page
     {
         public Restoraunt Restoraunt { get; set; }
-        public RestorauntPage(Restoraunt restoraunt)
+        public RestorauntRegistrationPage(Restoraunt restoraunt)
         {
             InitializeComponent();
             CBTerrace.ItemsSource = App.DB.Terrace.ToList();
@@ -77,11 +77,17 @@ namespace Diplom.Pages
 
         private void BAddPhoto_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog();
-            if (dialog.ShowDialog().GetValueOrDefault())
+            OpenFileDialog fileDialog = new OpenFileDialog
             {
-                Restoraunt.Image = File.ReadAllBytes(dialog.FileName);
-                //Image.Source = new BitmapImage(new Uri(dialog.FileName));
+                Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
+            };
+
+            if (fileDialog.ShowDialog().Value)
+            {
+                var photo = File.ReadAllBytes(fileDialog.FileName);
+
+                Restoraunt.Image = photo;
+                RestoImage.Source = new BitmapImage(new Uri(fileDialog.FileName));
             }
         }
     }

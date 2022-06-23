@@ -37,7 +37,7 @@ namespace Diplom.Pages
         private void LVRestaurants_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var restaurant = LVRestaurants.SelectedItem as Restoraunt;
-            NavigationService.Navigate(new RestorauntPage(restaurant));
+            NavigationService.Navigate(new RestaurantPage(restaurant));
         }
     }
 }

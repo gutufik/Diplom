@@ -43,7 +43,7 @@ namespace Diplom.Pages
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             var restaurant = (sender as Button).DataContext as Restoraunt;
-            NavigationService.Navigate(new RestorauntPage(restaurant));
+            NavigationService.Navigate(new RestorauntRegistrationPage(restaurant));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -95,7 +95,7 @@ namespace Diplom.Pages
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new RestorauntPage(new Restoraunt()));
+            NavigationService.Navigate(new RestorauntRegistrationPage(new Restoraunt()));
         }
     }
 }
