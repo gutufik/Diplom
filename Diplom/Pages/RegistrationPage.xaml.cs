@@ -39,12 +39,12 @@ namespace Diplom.Pages
         {
             try
             {
-                User.Password = TBPass.Password;
-                if (!IsPhoneNumber(User.Phone))
+                if (User.Phone == null || !IsPhoneNumber(User.Phone))
                     throw new Exception("Некорректный номер телефона");
                 else if (User.Name == null || User.Name.Length < 3)
                     throw new Exception("Минимальная длина имени 3 символа");
-                else if (User.Password.Length < 6)
+                User.Password = TBPass.Password;
+                if (User.Password.Length < 6)
                     throw new Exception("Минимальная длина пароля 6 символов");
 
                 App.DB.User.Add(User);

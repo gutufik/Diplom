@@ -19,8 +19,8 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button x:Name="BtnGoBack" Background="Transparent" BorderThickness="0"
@@ -31,14 +31,18 @@
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Center" Width="80" Height="80"/>
         </Button>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1">
+            
         <TextBlock Text="Бронирование"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Bottom"
                    Foreground="White"
-                   Grid.Column="1"
+                   
                    FontSize="30"/>
         <StackPanel 
+            Margin="15"
             VerticalAlignment="Center"
             Grid.Column="1"
             Grid.Row="1">
@@ -52,6 +56,7 @@
             FontSize="13"
             Foreground="White"
             Text="{Binding Restoraunt.Adress}"/>
+        </StackPanel>
         </StackPanel>
         
         <StackPanel 
@@ -101,6 +106,8 @@
         </StackPanel>
         <Button x:Name="BtnReserve"
                 Style="{StaticResource ButtonWhite}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
                 Content="Продолжить"
                 Grid.Column="1"
                 Grid.Row="4"

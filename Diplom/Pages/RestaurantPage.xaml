@@ -22,10 +22,13 @@
             <RowDefinition/>
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
-        <TextBlock 
+        <StackPanel
             Grid.Row="1"
             Grid.Column="1"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="2">
+            
+        <TextBlock 
+            
             FontSize="30"
             FontWeight="Bold"
             Text="{Binding Name}"/>
@@ -34,22 +37,32 @@
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Foreground="Gray"
-            Text="{Binding Adress}"/>
-        <TextBlock 
-            Grid.Row="3"
-            Grid.Column="1"
-            TextWrapping="Wrap"
             FontSize="15"
-            Text="{Binding Description}"/>
-        <Image x:Name="RestaurantImage"
-               Grid.Row="3"
-               Grid.Column="2"
-               Source="{Binding Image}"/>
-        <Button x:Name="BtnReserve"
+            Text="{Binding Adress}"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="2"
+                    Grid.RowSpan="2"
+            Grid.Column="1">
+            <StackPanel >
+
+                    <TextBlock 
+            TextWrapping="Wrap"
+            FontSize="20"
+            Text="{Binding Description}"
+                        Padding="10"/>
+                    <Button x:Name="BtnReserve"
                 Content="Бронировать"
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Center"
+                Margin="20"
                 Click="BtnReserve_Click"/>
+                </StackPanel>
+        </ScrollViewer>
+        <Image x:Name="RestaurantImage"
+               Grid.Row="2"
+                    Grid.RowSpan="2"
+               Grid.Column="2"
+               Source="{Binding Image}"/>
         <Button x:Name="BtnGoBack" Background="Transparent" BorderThickness="0"
                         Height="80"
                         VerticalAlignment="Center"

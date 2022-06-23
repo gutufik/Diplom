@@ -35,7 +35,8 @@
                 FontSize="30" FontWeight="DemiBold">
                 Рестораны
                 </TextBlock>
-                <TextBox Margin="100,0" 
+                <TextBlock Margin="150,0, 30,0" Text="Поиск" VerticalAlignment="Center"/>
+                <TextBox  
                          Width="200" 
                          TextChanged="TextBox_TextChanged"
                          VerticalAlignment="Center"
@@ -48,12 +49,13 @@
                 HorizontalAlignment="Center">
                 <materialDesign:PackIcon Kind="AccountOutline" />
         </Button>
-        
+        <Viewbox Grid.Row="1" Grid.RowSpan="3"
+                 VerticalAlignment="Top"
+                  Grid.ColumnSpan="2">
+            
         <ListView x:Name="LVRestaurants"
                   ItemsSource="{Binding Restoraunts}"
-                  SelectionChanged="LVRestaurants_SelectionChanged"
-                  Grid.Row="2" Grid.RowSpan="2"
-                  Grid.ColumnSpan="2">
+                  SelectionChanged="LVRestaurants_SelectionChanged">
             <ListView.View>
             <GridView AllowsColumnReorder="False">
                     <GridViewColumn
@@ -74,5 +76,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        </Viewbox>
     </Grid>
 </Page>

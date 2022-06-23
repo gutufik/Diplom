@@ -23,6 +23,8 @@
                 Style="{StaticResource ButtonTransparentRed}"
                 Grid.Column="2"    
                 Content="Выйти"
+                HorizontalAlignment="Right"
+                Margin="10,0"
                 Click="BtnExit_Click"/>
         
         <Button x:Name="BtnAdd"
@@ -30,24 +32,37 @@
                 Grid.Row="1"
                 Grid.Column="2"    
                 Content="Добавить"
+                HorizontalAlignment="Right"
+                Margin="10,0"
                 Click="BtnAdd_Click"/>
         
         <TextBlock
                 Margin="10"
                 FontSize="30"
                 Grid.ColumnSpan="2"
+                FontWeight="Bold"
                 x:Name="HelloLabel"/>
-
-        <ListView x:Name="LVRestaurants"
-                  Grid.Row="2"
+        <TextBlock Text="Управление ресторанами"
+                   Margin="10,0"
+                   FontSize="22"
+                   Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center"
+                   Grid.Row="1"/>
+        <Viewbox Grid.Row="2"
                   HorizontalAlignment="Center"
-                  Grid.ColumnSpan="3"
+                  Grid.ColumnSpan="3">
+            
+        <ListView x:Name="LVRestaurants"
+                  
                   ItemsSource="{Binding Restoraunts}">
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding Name}"
-                        Header="Название ресторана" />
+                        <GridViewColumn
+                        DisplayMemberBinding="{Binding Name}">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="Название ресторана" TextWrapping="Wrap"></TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                     <GridViewColumn
                         DisplayMemberBinding="{Binding Adress}"
                         Header="Адрес" />
@@ -73,6 +88,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        </Viewbox>
         <TextBlock
             x:Name="TextEmpty"
             Visibility="Hidden"
