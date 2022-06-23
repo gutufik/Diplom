@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Diplom.ADO;
 
 namespace Diplom.Pages
 {
@@ -20,9 +21,18 @@ namespace Diplom.Pages
     /// </summary>
     public partial class ClientReservationsPage : Page
     {
-        public ClientReservationsPage()
+        public User User { get; set; }
+        public ClientReservationsPage(User user)
         {
             InitializeComponent();
+            User = user;
+            DataContext = User;
+        }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
+            App.LoggedUser = null;
         }
     }
 }

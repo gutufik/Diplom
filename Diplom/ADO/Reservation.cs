@@ -32,6 +32,8 @@ public partial class Reservation
 
     public virtual Restoraunt Restoraunt { get; set; }
 
+    public virtual User User { get; set; }
+
 }
 
 }

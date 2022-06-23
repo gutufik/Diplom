@@ -92,6 +92,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Reservation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Restoraunt_AverageCheck">
           <End Role="AverageCheck" Type="Self.AverageCheck" Multiplicity="0..1" />
           <End Role="Restoraunt" Type="Self.Restoraunt" Multiplicity="*" />
@@ -165,6 +177,10 @@
             <End Role="Restoraunt" EntitySet="Restoraunt" />
             <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
+          <AssociationSet Name="FK_Reservation_User" Association="Self.FK_Reservation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
           <AssociationSet Name="FK_Restoraunt_AverageCheck" Association="Self.FK_Restoraunt_AverageCheck">
             <End Role="AverageCheck" EntitySet="AverageCheck" />
             <End Role="Restoraunt" EntitySet="Restoraunt" />
@@ -211,6 +227,10 @@
             <End Role="Restoraunt" EntitySet="Restoraunt" />
             <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
+          <AssociationSet Name="FK_Reservation_User" Association="RestoModel.FK_Reservation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
           <AssociationSet Name="FK_Restoraunt_Terrace" Association="RestoModel.FK_Restoraunt_Terrace">
             <End Role="Terrace" EntitySet="Terrace" />
             <End Role="Restoraunt" EntitySet="Restoraunt" />
@@ -250,12 +270,13 @@
           <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Persons" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Restoraunt" Relationship="RestoModel.FK_Reservation_Restoraunt" FromRole="Reservation" ToRole="Restoraunt" />
+          <NavigationProperty Name="User" Relationship="RestoModel.FK_Reservation_User" FromRole="Reservation" ToRole="User" />
         </EntityType>
         <EntityType Name="Restoraunt">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Adress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -308,6 +329,7 @@
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reservation" Relationship="RestoModel.FK_Reservation_User" FromRole="User" ToRole="Reservation" />
           <NavigationProperty Name="Restoraunt" Relationship="RestoModel.FK_Restoraunt_User" FromRole="User" ToRole="Restoraunt" />
           <NavigationProperty Name="Role" Relationship="RestoModel.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
@@ -344,6 +366,18 @@
             </Principal>
             <Dependent Role="Reservation">
               <PropertyRef Name="RestorauntId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_User">
+          <End Type="RestoModel.User" Role="User" Multiplicity="1" />
+          <End Type="RestoModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ClientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

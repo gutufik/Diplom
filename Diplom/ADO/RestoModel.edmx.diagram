@@ -5,17 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3061eefd676c48b4aed17530b5604d6a" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="RestoModel.AverageCheck" Width="1.5" PointX="3" PointY="5.5" />
-        <EntityTypeShape EntityType="RestoModel.FoodType" Width="1.5" PointX="3" PointY="10.25" />
-        <EntityTypeShape EntityType="RestoModel.Reservation" Width="1.5" PointX="7.5" PointY="2.125" />
-        <EntityTypeShape EntityType="RestoModel.Restoraunt" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="RestoModel.Role" Width="1.5" PointX="0.75" PointY="2.375" />
-        <EntityTypeShape EntityType="RestoModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" />
-        <EntityTypeShape EntityType="RestoModel.Terrace" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="RestoModel.User" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="RestoModel.AverageCheck" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="RestoModel.FoodType" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="RestoModel.Reservation" Width="1.5" PointX="7.5" PointY="3.75" />
+        <EntityTypeShape EntityType="RestoModel.Restoraunt" Width="1.5" PointX="5.25" PointY="2.75" />
+        <EntityTypeShape EntityType="RestoModel.Role" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="RestoModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RestoModel.Terrace" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="RestoModel.User" Width="1.5" PointX="3" PointY="3.625" />
         <AssociationConnector Association="RestoModel.FK_Restoraunt_AverageCheck" />
         <AssociationConnector Association="RestoModel.FK_Restoraunt_FoodType" />
         <AssociationConnector Association="RestoModel.FK_Reservation_Restoraunt" />
+        <AssociationConnector Association="RestoModel.FK_Reservation_User" />
         <AssociationConnector Association="RestoModel.FK_Restoraunt_Terrace" />
         <AssociationConnector Association="RestoModel.FK_Restoraunt_User" />
         <AssociationConnector Association="RestoModel.FK_User_Role" />

@@ -39,5 +39,10 @@ namespace Diplom.Pages
             var restaurant = LVRestaurants.SelectedItem as Restoraunt;
             NavigationService.Navigate(new RestaurantPage(restaurant));
         }
+
+        private void BtnReservations_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ClientReservationsPage(App.LoggedUser));
+        }
     }
 }

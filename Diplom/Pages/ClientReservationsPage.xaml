@@ -5,10 +5,80 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Diplom.Pages"
       mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ClientReservationsPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="3">
+            <TextBlock Text="Мои бронирования"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Margin="10"/>
+        </StackPanel>
+        <Button x:Name="BtnExit"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    Content="Выйти"
+                    Click="BtnExit_Click"
+                    Style="{StaticResource ButtonTransparentRed}"/>
+        
+        <ListView ItemsSource="{Binding Reservation}"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="3">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="20"
+                            Padding="10">
+                        
+                        <StackPanel>
+                            <Image
+                                Width="150"
+                                Source="{Binding Restoraunt.Image}"/>
+                            <TextBlock Text="{Binding Restoraunt.Name}" 
+                                       FontSize="20"
+                                       FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Restoraunt.Adress}" 
+                                       FontSize="10"
+                                       Foreground="Gray"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                <materialDesign:PackIcon Kind="AccountGroup" 
+                                                         Margin="10,0"/>
+                                <TextBlock Text="{Binding Persons}"/>
+                                <TextBlock Text=" человек(а)"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <materialDesign:PackIcon Kind="ClockOutline" Margin="10,0" />
+                                <TextBlock Text="{Binding Time, StringFormat=t, ConverterCulture=ru-RU}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CalendarRange" Margin="10,0"/>
+                                <TextBlock Text="{Binding Time, StringFormat=d, ConverterCulture=ru-RU}"/>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         
     </Grid>
 </Page>

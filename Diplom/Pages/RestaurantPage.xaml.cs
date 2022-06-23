@@ -29,5 +29,10 @@ namespace Diplom.Pages
             DataContext = Restoraunt;
 
         }
+
+        private void BtnReserve_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ReservationPage(Restoraunt));
+        }
     }
 }

@@ -3,12 +3,71 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Diplom.Pages"
       mc:Ignorable="d" 
+      Background="#4BB9F8"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ReservationPAge">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Бронирование"
+                   Foreground="White"
+                   Grid.Column="1"
+                   FontSize="25"/>
+        <TextBlock 
+            Grid.Column="1"
+            Grid.Row="1"
+            Foreground="White"
+            Text="{Binding Restoraunt.Name}"/>
+        <StackPanel 
+            Grid.Row="2"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock Text="В"
+                       Foreground="White"
+                       FontSize="25"/>
+            
+            <materialDesign:TimePicker
+              x:Name="TPTime"
+              Is24Hours="True"
+              Width="100"
+              SelectedTime="{Binding Time}"
+               />
+
+        </StackPanel>
+        <StackPanel 
+            Grid.Row="3"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock Text="На"
+                       Foreground="White"
+                       FontSize="25"/>
+            <TextBox x:Name="TBPersonsCount"
+                     Text="{Binding Persons}">
+            </TextBox>
+            <TextBlock 
+                Foreground="White"
+                FontSize="25"
+                Text="персон"/>
+        </StackPanel>
+        <Button x:Name="BtnReserve"
+                Content="Продолжить"
+                Grid.Column="1"
+                Grid.Row="4"
+                Click="BtnReserve_Click"/>
+
     </Grid>
 </Page>

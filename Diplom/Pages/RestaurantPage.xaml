@@ -43,5 +43,8 @@
                Grid.Row="3"
                Grid.Column="2"
                Source="{Binding Image}"/>
+        <Button x:Name="BtnReserve"
+                Content="Бронировать"
+                Click="BtnReserve_Click"/>
     </Grid>
 </Page>
