@@ -10,20 +10,22 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="85*"/>
-            <ColumnDefinition Width="575*"/>
-            <ColumnDefinition Width="132*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical"
-                    Grid.Row="1" 
-                    Grid.Column="1" 
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Center">
+        <Viewbox Grid.Row="1" 
+                 Grid.Column="1"
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Center">
+            
+        <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Вход" 
                            HorizontalAlignment="Left" 
@@ -40,15 +42,17 @@
                         Height="28" 
                         Click="BReg_Click"/>
             </StackPanel>
-            <TextBlock Text="Номер телефона" />
+            <TextBlock Text="Номер телефона" 
+                       Margin="10,0"/>
             <TextBox x:Name="TBPhone" 
                      HorizontalAlignment="Left" 
-                     Margin="10" 
+                     Margin="10,0" 
                      Width="198"/>
-            <TextBlock Text="Пароль" />
+            <TextBlock Text="Пароль"
+                       Margin="10,0" />
             <PasswordBox x:Name="PBPassword" 
                      HorizontalAlignment="Left" 
-                     Margin="10" 
+                     Margin="10,0" 
                       
                      Width="198"/>
             <Button x:Name="BAuth" 
@@ -61,5 +65,6 @@
                     Height="30"
                     Click="BAuth_Click"/>
         </StackPanel>
+        </Viewbox>
     </Grid>
 </Page>

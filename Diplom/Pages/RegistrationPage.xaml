@@ -35,34 +35,30 @@
                        Margin="5" />
             <TextBlock x:Name="Description"
                        Margin="5"
+                       TextWrapping="Wrap"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       FontSize="10" />
-            <TextBlock Text="Телефон"/>
+                       FontSize="15" />
+            <TextBlock Text="Телефон" Margin="10,0" />
             <TextBox x:Name="TBPhone"
                      HorizontalAlignment="Left"
                      Margin="10"
                      Text="{Binding Phone}"
                      Width="198"
                      Height="30" />
-            <TextBlock Text="Имя"/>
+            <TextBlock Text="Имя" Margin="10,0" />
             <TextBox x:Name="TBName"
                      HorizontalAlignment="Left"
                      Margin="10"
                      Text="{Binding Name}"
                      Width="198"
                      Height="30" />
-            <TextBlock Text="Пароль"/>
+            <TextBlock Text="Пароль" Margin="10,0" />
             <PasswordBox x:Name="TBPass"
                      HorizontalAlignment="Left"
                      Margin="10"
                      Width="198"
                      Height="30" />
-            <CheckBox Content="Сгенерировать пароль"
-                      x:Name="CBPass"
-                      Margin="10" />
-            <CheckBox Content="Согласен с условиями использования"
-                      Margin="10, 5" />
             <Button x:Name="BAdd"
                     Content="Добавить"
                     HorizontalAlignment="Left"

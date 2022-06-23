@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,15 +40,26 @@ namespace Diplom.Pages
             try
             {
                 User.Password = TBPass.Password;
+                if (!IsPhoneNumber(User.Phone))
+                    throw new Exception("Некорректный номер телефона");
+                else if (User.Name == null || User.Name.Length < 3)
+                    throw new Exception("Минимальная длина имени 3 символа");
+                else if (User.Password.Length < 6)
+                    throw new Exception("Минимальная длина пароля 6 символов");
+
                 App.DB.User.Add(User);
                 App.DB.SaveChanges();
                 MessageBox.Show("Успех!");
                 NavigationService.Navigate(new AuthorizationPage());
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Что-то пошло не так");
+                MessageBox.Show(ex.Message);
             }
+        }
+        private bool IsPhoneNumber(string phone)
+        {
+            return Regex.Match(phone, @"^([0-9]{11})$").Success;
         }
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
