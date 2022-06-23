@@ -111,14 +111,14 @@
     <Compile Include="ADO\User.cs">
       <DependentUpon>RestoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdminMainPage.xaml.cs">
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ClientReservationPage.xaml.cs">
-      <DependentUpon>ClientReservationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
@@ -126,51 +126,25 @@
     <Compile Include="Pages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ReservationPage.xaml.cs">
-      <DependentUpon>ReservationPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\RestorauntPage.xaml.cs">
       <DependentUpon>RestorauntPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SelectRolePage.xaml.cs">
       <DependentUpon>SelectRolePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SelectRestorauntPage.xaml.cs">
-      <DependentUpon>SelectRestorauntPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AuthWin.xaml.cs">
-      <DependentUpon>AuthWin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ClientRegWin.xaml.cs">
-      <DependentUpon>ClientRegWin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\RestRegWin.xaml.cs">
-      <DependentUpon>RestRegWin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\RoleRegWin.xaml.cs">
-      <DependentUpon>RoleRegWin.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AdminMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AuthorizationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ClientReservationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,35 +156,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ReservationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\RestorauntPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SelectRolePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SelectRestorauntPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\AuthWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ClientRegWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\RestRegWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\RoleRegWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,7 +199,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Windows\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="ADO\RestoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

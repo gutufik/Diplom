@@ -29,16 +29,7 @@ namespace Diplom.Pages
             InitializeComponent();
             Restoraunts = App.LoggedUser.Restoraunt.ToList();
 
-            if (Restoraunts.Count == 0)
-            {
-                LVRestaurants.Visibility = Visibility.Hidden;
-                TextEmpty.Visibility = Visibility.Visible;
-            }
-            else 
-            {
-                LVRestaurants.Visibility = Visibility.Visible;
-                TextEmpty.Visibility = Visibility.Hidden;
-            }
+            SetListVisibility();
             HelloLabel.Text = $"Здравствуйте, {App.LoggedUser.Name}!";
             NavigationService.Navigated += RefreshRestaurants;
             DataContext = this;
@@ -66,16 +57,34 @@ namespace Diplom.Pages
                 App.DB.Restoraunt.Remove(restaurant);
                 App.DB.SaveChanges();
 
-                Restoraunts = App.DB.Restoraunt.ToList();
+                Restoraunts = App.LoggedUser.Restoraunt.ToList();
                 LVRestaurants.ItemsSource = Restoraunts;
+                SetListVisibility();
                 LVRestaurants.Items.Refresh();
+            }
+        }
+        private void SetListVisibility()
+        {
+            if (Restoraunts.Count == 0)
+            {
+                LVRestaurants.Visibility = Visibility.Hidden;
+                TextEmpty.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                LVRestaurants.Visibility = Visibility.Visible;
+                TextEmpty.Visibility = Visibility.Hidden;
             }
         }
         private void RefreshRestaurants(object sender, NavigationEventArgs e)
         {
-            Restoraunts = App.DB.Restoraunt.ToList();
-            LVRestaurants.ItemsSource = Restoraunts;
-            LVRestaurants.Items.Refresh();
+            if (App.LoggedUser != null)
+            {
+                Restoraunts = App.LoggedUser.Restoraunt.ToList();
+                LVRestaurants.ItemsSource = Restoraunts;
+                SetListVisibility();
+                LVRestaurants.Items.Refresh();
+            }
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
